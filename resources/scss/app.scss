@@ -102,7 +102,7 @@ h1, h2, h3, h4 { color: $ink; margin: 0 0 .4em; line-height: 1.2; }
 }
 
 .sidebar {
-  background: $ink;
+  background: $teal;
   color: #c7d2de;
   display: flex;
   flex-direction: column;
@@ -129,7 +129,7 @@ h1, h2, h3, h4 { color: $ink; margin: 0 0 .4em; line-height: 1.2; }
   letter-spacing: .02em;
   flex: none;
 }
-.brand-logo { width: 40px; height: 40px; border-radius: 9px; display: block; flex: none; }
+.brand-logo { width: 200px; height: auto; border-radius: 9px; display: block; flex: none; }
 .brand-text strong { color: #fff; font-size: 1.05rem; display: block; letter-spacing: .04em; }
 .brand-text span { font-size: .68rem; color: #8ea2b6; text-transform: uppercase; letter-spacing: .08em; }
 

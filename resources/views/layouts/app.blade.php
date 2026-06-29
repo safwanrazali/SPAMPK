@@ -13,11 +13,8 @@
 <div class="app">
     <aside class="sidebar">
         <div class="sidebar__brand">
-            <img class="brand-logo" src="{{ asset('images/spampk-mark.png') }}" alt="SPAMPK">
-            <div class="brand-text">
-                <strong>SPAMPK</strong>
-                <span>Pelaporan PQC</span>
-            </div>
+            <img class="brand-logo" src="{{ asset('images/spampk_logo.png') }}" alt="SPAMPK">
+            
         </div>
 
         <nav class="nav">
