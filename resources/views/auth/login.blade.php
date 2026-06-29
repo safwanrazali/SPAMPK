@@ -3,26 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="{{ asset('images/favicon.png') }}">
+    <link rel="icon" href="{{ asset('images/spampk_logo.png') }}">
     <title>Log Masuk &middot; SPAMPK</title>
     @vite(['resources/scss/app.scss', 'resources/js/app.js'])
 </head>
 <body>
 <div class="login">
-    <section class="login__brand">
-        <img class="login__logo" src="{{ asset('images/spampk-logo.png') }}" alt="SPAMPK">
-        <p>Sistem Pelaporan Automatik Migrasi Pasca-Kuantum — platform luar talian bagi penjanaan laporan analisis data migrasi PQC.</p>
-        <ul class="login__points">
-            <li>Penjanaan laporan analisis 10 seksyen secara automatik</li>
-            <li>Kawalan capaian berasaskan peranan</li>
-            <li>Beroperasi sepenuhnya tanpa sambungan Internet</li>
-        </ul>
-        <div class="tagline">Bahagian Migrasi PQC</div>
-    </section>
-
     <section class="login__panel">
         <div class="login__card">
-            <img class="login__card-mark" src="{{ asset('images/spampk-mark.png') }}" alt="SPAMPK">
+            <img class="login__card-mark" src="{{ asset('images/spampk_logo.png') }}" alt="SPAMPK">
             <h2>Log Masuk</h2>
             <p class="sub">Masukkan nama pengguna dan kata laluan anda.</p>
 

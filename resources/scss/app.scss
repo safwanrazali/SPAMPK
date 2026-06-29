@@ -52,8 +52,8 @@ h1, h2, h3, h4 { color: $ink; margin: 0 0 .4em; line-height: 1.2; }
 .btn:active { transform: translateY(1px); }
 .btn--primary { background: $teal; color: #fff; }
 .btn--primary:hover { background: $teal-600; text-decoration: none; }
-.btn--ghost { background: #fff; color: $ink-600; border-color: $line; }
-.btn--ghost:hover { background: $line-soft; text-decoration: none; }
+.btn--ghost { background: #fff; color: $teal; border-color: $teal; }
+.btn--ghost:hover { background: $teal-050; text-decoration: none; }
 .btn--danger { background: $danger; color: #fff; }
 .btn--danger:hover { background: color.adjust($danger, $lightness: -6%); text-decoration: none; }
 .btn--success { background: $success; color: #fff; }
@@ -102,7 +102,7 @@ h1, h2, h3, h4 { color: $ink; margin: 0 0 .4em; line-height: 1.2; }
 }
 
 .sidebar {
-  background: $teal;
+  background: $line-soft;
   color: #c7d2de;
   display: flex;
   flex-direction: column;
@@ -129,14 +129,14 @@ h1, h2, h3, h4 { color: $ink; margin: 0 0 .4em; line-height: 1.2; }
   letter-spacing: .02em;
   flex: none;
 }
-.brand-logo { width: 200px; height: auto; border-radius: 9px; display: block; flex: none; }
+.brand-logo { width: 220px; height: auto; border-radius: 9px; display: block; flex: none; }
 .brand-text strong { color: #fff; font-size: 1.05rem; display: block; letter-spacing: .04em; }
 .brand-text span { font-size: .68rem; color: #8ea2b6; text-transform: uppercase; letter-spacing: .08em; }
 
 .nav { padding: .9rem .7rem; flex: 1; overflow-y: auto; }
 .nav__label {
   font-size: .68rem; text-transform: uppercase; letter-spacing: .12em;
-  color: #6f8197; padding: .9rem .8rem .35rem; font-weight: 700;
+  color: $ink; padding: .9rem .8rem .35rem; font-weight: 700;
 }
 .nav__link {
   display: flex; align-items: center; gap: .7rem;
@@ -146,8 +146,8 @@ h1, h2, h3, h4 { color: $ink; margin: 0 0 .4em; line-height: 1.2; }
   font-weight: 500;
   margin-bottom: .15rem;
 }
-.nav__link:hover { background: rgba(255, 255, 255, .06); color: #fff; text-decoration: none; }
-.nav__link.is-active { background: rgba(18, 122, 116, .22); color: #fff; box-shadow: inset 3px 0 0 $teal; }
+.nav__link:hover { background: rgba(255, 255, 255, .06); color: $teal; text-decoration: none; transform: scale(1.01); }
+.nav__link.is-active { background: $teal-600; color: #fff; }
 .nav__ico { width: 18px; height: 18px; flex: none; opacity: .9; }
 
 .sidebar__foot { padding: 1rem; border-top: 1px solid rgba(255, 255, 255, .08); }
@@ -157,8 +157,8 @@ h1, h2, h3, h4 { color: $ink; margin: 0 0 .4em; line-height: 1.2; }
   background: $teal; color: #fff; display: grid; place-items: center;
   font-weight: 700; flex: none;
 }
-.userbox__meta strong { color: #fff; font-size: .85rem; display: block; }
-.userbox__meta span { font-size: .7rem; color: #8ea2b6; }
+.userbox__meta strong { color: $teal; font-size: .85rem; display: block; }
+.userbox__meta span { font-size: .7rem; color: $ink; }
 
 /* ---------- Kawasan kandungan ---------- */
 .main { display: flex; flex-direction: column; min-width: 0; }
@@ -226,7 +226,7 @@ h1, h2, h3, h4 { color: $ink; margin: 0 0 .4em; line-height: 1.2; }
   outline: none; border-color: $teal; box-shadow: 0 0 0 3px rgba(18, 122, 116, .14);
 }
 .textarea { resize: vertical; min-height: 84px; }
-.checkrow { display: flex; align-items: center; gap: .5rem; }
+.checkrow { display: flex; flex-direction: row; align-items: center; gap: .5rem; }
 .field-error { color: $danger; font-size: .78rem; }
 .is-invalid { border-color: $danger; }
 
@@ -272,34 +272,17 @@ h1, h2, h3, h4 { color: $ink; margin: 0 0 .4em; line-height: 1.2; }
 .login {
   min-height: 100vh;
   display: grid;
-  grid-template-columns: 1.1fr 1fr;
+  // grid-template-columns: 1.1fr 1fr;
   background: $ink;
 }
-.login__brand {
-  color: #fff; padding: 3.5rem; display: flex; flex-direction: column; justify-content: center;
-  background:
-    radial-gradient(900px 500px at 80% -10%, rgba(18,122,116,.45), transparent 60%),
-    radial-gradient(700px 500px at 10% 110%, rgba(13,91,143,.4), transparent 55%);
-}
-.login__brand .brand-mark { width: 64px; height: 64px; font-size: 1.2rem; border-radius: 16px; margin-bottom: 1.6rem; }
-.login__logo { width: 340px; max-width: 78%; height: auto; margin-bottom: 1.8rem; }
-.login__points { list-style: none; padding: 0; margin: 1.6rem 0 0; }
-.login__points li {
-  color: #c2d0df; font-size: .92rem; padding: .3rem 0 .3rem 1.6rem; position: relative;
-}
-.login__points li::before {
-  content: ""; position: absolute; left: 0; top: .62rem;
-  width: 8px; height: 8px; border-radius: 50%; background: $teal;
-}
-.login__brand h1 { color: #fff; font-size: 2.1rem; letter-spacing: .04em; }
-.login__brand p { color: #aebccd; max-width: 440px; font-size: 1.02rem; }
-.login__brand .tagline { margin-top: 2rem; font-size: .8rem; text-transform: uppercase; letter-spacing: .14em; color: #7f93a8; }
+
 .login__panel { background: $paper; display: grid; place-items: center; padding: 2rem; }
 .login__card {
   width: 100%; max-width: 380px; background: #fff; border: 1px solid $line;
   border-radius: $radius-lg; box-shadow: $shadow-lg; padding: 2rem;
+  display: flex; flex-direction: column; gap: 1rem;
 }
-.login__card-mark { width: 52px; height: 52px; border-radius: 13px; margin-bottom: 1rem; }
+.login__card-mark { width: 220px; height: auto; border-radius: 13px; margin-bottom: 1rem; display: block; align-self: center; }
 .login__card h2 { font-size: 1.3rem; }
 .login__card .sub { color: $mist; margin: 0 0 1.5rem; font-size: .9rem; }
 

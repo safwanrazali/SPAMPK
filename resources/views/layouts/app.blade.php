@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <link rel="icon" href="{{ asset('images/favicon.png') }}">
+    <link rel="icon" href="{{ asset('images/spampk_logo.png') }}">
     <title>@yield('title', 'SPAMPK') &middot; SPAMPK</title>
     @vite(['resources/scss/app.scss', 'resources/js/app.js'])
 </head>
@@ -52,7 +52,6 @@
     <div class="main">
         <header class="topbar">
             <div>
-                <div class="topbar__crumb">@yield('crumb', 'SPAMPK')</div>
                 <div class="topbar__title">@yield('title', 'Papan Pemuka')</div>
             </div>
         </header>
