@@ -350,8 +350,14 @@ h1, h2, h3, h4 { color: $ink; margin: 0 0 .4em; line-height: 1.2; }
   }
   .sidebar.is-open { transform: translateX(0); }
 
-  .sidebar__close { display: inline-flex; }
+  .sidebar__close {
+    display: inline-flex;
+    padding: .55rem;
+    margin-left: auto;
+  }
   .menu-toggle { display: inline-flex; }
+
+  .brand-logo { width: 160px; }
 
   .topbar { padding: 0 1rem; }
   .content { padding: 1.1rem; }
@@ -370,6 +376,8 @@ h1, h2, h3, h4 { color: $ink; margin: 0 0 .4em; line-height: 1.2; }
 @media (max-width: 480px) {
   .stat-grid { grid-template-columns: 1fr 1fr; }
   .page-head h1 { font-size: 1.25rem; }
+  .brand-logo { width: 130px; }
+  .sidebar__close { padding: .45rem; }
 }
 
 body.no-scroll { overflow: hidden; }
