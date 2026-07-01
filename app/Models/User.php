@@ -12,11 +12,13 @@ class User extends Authenticatable
     use HasFactory, Notifiable;
 
     public const ROLE_PENTADBIR = 'pentadbir';
+    public const ROLE_PENGURUSAN = 'pengurusan';
     public const ROLE_PENYELARAS = 'penyelaras';
     public const ROLE_ANALISIS = 'analisis';
 
     public const ROLES = [
         self::ROLE_PENTADBIR => 'Pentadbir Sistem',
+        self::ROLE_PENGURUSAN => 'Pengurusan',
         self::ROLE_PENYELARAS => 'Pegawai Penyelaras Analisis',
         self::ROLE_ANALISIS => 'Pegawai Analisis',
     ];
@@ -55,6 +57,11 @@ class User extends Authenticatable
     public function isPentadbir(): bool
     {
         return $this->role === self::ROLE_PENTADBIR;
+    }
+
+    public function isPengurusan(): bool
+    {
+        return $this->role === self::ROLE_PENGURUSAN;
     }
 
     public function isPenyelaras(): bool

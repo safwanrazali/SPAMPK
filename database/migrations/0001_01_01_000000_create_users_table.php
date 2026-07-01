@@ -13,7 +13,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('username')->unique();
             $table->string('password');
-            $table->string('role')->default('analisis'); // pentadbir | penyelaras | analisis
+            $table->string('role')->default('analisis'); // pentadbir | pengurusan | penyelaras | analisis
             $table->boolean('is_active')->default(true);
             $table->rememberToken();
             $table->timestamps();
