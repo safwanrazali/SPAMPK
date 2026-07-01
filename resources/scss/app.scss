@@ -109,11 +109,14 @@ h1, h2, h3, h4 { color: $ink; margin: 0 0 .4em; line-height: 1.2; }
   position: sticky;
   top: 0;
   height: 100vh;
+  z-index: 40;
+  transition: transform .25s ease;
 }
 .sidebar__brand {
   padding: 1.25rem 1.4rem;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: .75rem;
   border-bottom: 1px solid rgba(255, 255, 255, .08);
 }
@@ -132,6 +135,21 @@ h1, h2, h3, h4 { color: $ink; margin: 0 0 .4em; line-height: 1.2; }
 .brand-logo { width: 220px; height: auto; border-radius: 9px; display: block; flex: none; }
 .brand-text strong { color: #fff; font-size: 1.05rem; display: block; letter-spacing: .04em; }
 .brand-text span { font-size: .68rem; color: #8ea2b6; text-transform: uppercase; letter-spacing: .08em; }
+
+.sidebar__close {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  color: $ink;
+  cursor: pointer;
+  padding: .4rem;
+  border-radius: $radius-sm;
+  flex: none;
+}
+.sidebar__close:hover { background: rgba(13, 27, 42, .06); }
+.sidebar__close svg { width: 22px; height: 22px; display: block; }
 
 .nav { padding: .9rem .7rem; flex: 1; overflow-y: auto; }
 .nav__label {
@@ -160,6 +178,21 @@ h1, h2, h3, h4 { color: $ink; margin: 0 0 .4em; line-height: 1.2; }
 .userbox__meta strong { color: $teal; font-size: .85rem; display: block; }
 .userbox__meta span { font-size: .7rem; color: $ink; }
 
+/* ---------- Lapisan latar drawer (mudah alih) ---------- */
+.sidebar-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(13, 27, 42, .55);
+  z-index: 35;
+  opacity: 0;
+  transition: opacity .25s ease;
+}
+.sidebar-overlay.is-visible {
+  display: block;
+  opacity: 1;
+}
+
 /* ---------- Kawasan kandungan ---------- */
 .main { display: flex; flex-direction: column; min-width: 0; }
 .topbar {
@@ -172,16 +205,25 @@ h1, h2, h3, h4 { color: $ink; margin: 0 0 .4em; line-height: 1.2; }
   padding: 0 1.6rem;
   position: sticky; top: 0; z-index: 10;
 }
+.topbar__left { display: flex; align-items: center; gap: .8rem; min-width: 0; }
 .topbar__title { font-size: 1.1rem; font-weight: 700; color: $ink; }
 .topbar__crumb { font-size: .78rem; color: $mist; }
 .content { padding: 1.7rem; max-width: 1180px; width: 100%; }
 
-.page-head {
-  display: flex; align-items: flex-start; justify-content: space-between;
-  gap: 1rem; margin-bottom: 1.3rem; flex-wrap: wrap;
+.menu-toggle {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: 1px solid $line;
+  cursor: pointer;
+  padding: .45rem;
+  color: $ink;
+  border-radius: $radius-sm;
+  flex: none;
 }
-.page-head h1 { font-size: 1.5rem; }
-.page-head p { color: $mist; margin: .15rem 0 0; }
+.menu-toggle:hover { background: $line-soft; }
+.menu-toggle svg { width: 22px; height: 22px; display: block; }
 
 /* ---------- Grid statistik ---------- */
 .stat-grid {
@@ -295,14 +337,42 @@ h1, h2, h3, h4 { color: $ink; margin: 0 0 .4em; line-height: 1.2; }
 /* ---------- Responsif ---------- */
 @media (max-width: 920px) {
   .app { grid-template-columns: 1fr; }
-  .sidebar { position: static; height: auto; flex-direction: row; flex-wrap: wrap; }
-  .nav { display: flex; flex-wrap: wrap; gap: .3rem; }
-  .nav__label { display: none; }
-  .sidebar__foot { width: 100%; }
+
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: min(280px, 85vw);
+    height: 100vh;
+    transform: translateX(-100%);
+    box-shadow: $shadow-lg;
+    z-index: 50;
+  }
+  .sidebar.is-open { transform: translateX(0); }
+
+  .sidebar__close { display: inline-flex; }
+  .menu-toggle { display: inline-flex; }
+
+  .topbar { padding: 0 1rem; }
+  .content { padding: 1.1rem; }
+
   .form-grid, .form-grid--3 { grid-template-columns: 1fr; }
+  .repeat-row--aset,
+  .repeat-row--limitasi,
+  .repeat-row--cadangan { grid-template-columns: 1fr; }
+
+  .page-head { flex-direction: column; align-items: stretch; }
+
   .login { grid-template-columns: 1fr; }
   .login__brand { display: none; }
 }
+
+@media (max-width: 480px) {
+  .stat-grid { grid-template-columns: 1fr 1fr; }
+  .page-head h1 { font-size: 1.25rem; }
+}
+
+body.no-scroll { overflow: hidden; }
 
 @media (prefers-reduced-motion: reduce) {
   * { transition: none !important; }
