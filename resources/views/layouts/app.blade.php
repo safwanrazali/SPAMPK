@@ -29,14 +29,32 @@
             <a href="{{ route('dashboard') }}" class="nav__link {{ request()->routeIs('dashboard') ? 'is-active' : '' }}">
                 Papan Pemuka
             </a>
-            <a href="{{ route('reports.index') }}" class="nav__link {{ request()->routeIs('reports.*') ? 'is-active' : '' }}">
-                Laporan
-            </a>
+
+            @if ($u->isPenyelaras() || $u->isAnalisis())
+                <a href="{{ route('uploads.index') }}" class="nav__link {{ request()->routeIs('uploads.*') ? 'is-active' : '' }}">
+                    Muat Naik Fail
+                </a>
+                <a href="{{ route('submissions.index') }}" class="nav__link {{ request()->routeIs('submissions.*') ? 'is-active' : '' }}">
+                    Penyerahan
+                </a>
+            @endif
+
+            @if ($u->isPengurusan() || $u->isPenyelaras() || $u->isAnalisis())
+                <a href="{{ route('reports.index') }}" class="nav__link {{ request()->routeIs('reports.*') ? 'is-active' : '' }}">
+                    Laporan
+                </a>
+            @endif
 
             @if ($u->isPentadbir())
                 <div class="nav__label">Pentadbiran</div>
                 <a href="{{ route('users.index') }}" class="nav__link {{ request()->routeIs('users.*') ? 'is-active' : '' }}">
                     Pengurusan Pengguna
+                </a>
+                <a href="{{ route('audit.index') }}" class="nav__link {{ request()->routeIs('audit.*') ? 'is-active' : '' }}">
+                    Log Audit
+                </a>
+                <a href="{{ route('config.index') }}" class="nav__link {{ request()->routeIs('config.*') ? 'is-active' : '' }}">
+                    Sistem Konfigurasi
                 </a>
             @endif
         </nav>
