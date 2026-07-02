@@ -41,19 +41,22 @@
             @endif
         </nav>
 
-        <div class="sidebar__foot">
-            <div class="userbox">
-                <div class="avatar">{{ strtoupper(substr($u->name, 0, 1)) }}</div>
-                <div class="userbox__meta">
-                    <strong>{{ $u->name }}</strong>
-                    <span>{{ $u->roleLabel() }}</span>
-                </div>
-            </div>
-            <form method="POST" action="{{ route('logout') }}">
-                @csrf
-                <button type="submit" class="btn btn--ghost btn--sm btn--block">Log Keluar</button>
-            </form>
+       <div class="sidebar__foot">
+    <div class="userbox">
+        <div class="avatar">{{ strtoupper(substr($u->name, 0, 1)) }}</div>
+        <div class="userbox__meta">
+            <strong>{{ $u->name }}</strong>
+            <span>{{ $u->roleLabel() }}</span>
         </div>
+    </div>
+    <a href="{{ route('profile.edit') }}" class="btn btn--ghost btn--sm btn--block" style="margin-bottom:.5rem;">
+        Profil Pengguna
+    </a>
+    <form method="POST" action="{{ route('logout') }}">
+        @csrf
+        <button type="submit" class="btn btn--ghost btn--sm btn--block">Log Keluar</button>
+    </form>
+</div>
     </aside>
 
     <div class="main">

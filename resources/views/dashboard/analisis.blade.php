@@ -16,7 +16,7 @@
 
     <div class="stat-grid">
         <div class="stat stat--bar">
-            <div class="stat__k">Jumlah Laporan</div>
+            <div class="stat__k">Jumlah Laporan Saya</div>
             <div class="stat__v stat__v--accent">{{ $stats['jumlah'] }}</div>
         </div>
         <div class="stat">
@@ -39,7 +39,7 @@
 
     <div class="card">
         <div class="card__head">
-            <span class="card__title">Laporan Terkini</span>
+            <span class="card__title">Laporan Saya Terkini</span>
             <a href="{{ route('reports.index') }}" class="btn btn--ghost btn--sm">Lihat Semua</a>
         </div>
         <div class="table-wrap">
@@ -63,7 +63,7 @@
                             <td><a href="{{ route('reports.show', $r) }}" class="btn btn--ghost btn--sm">Lihat</a></td>
                         </tr>
                     @empty
-                        <tr><td colspan="5" class="muted text-center">Tiada laporan lagi.</td></tr>
+                        <tr><td colspan="5" class="muted text-center">Anda belum mencipta sebarang laporan.</td></tr>
                     @endforelse
                 </tbody>
             </table>

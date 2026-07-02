@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ReportController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -23,6 +24,10 @@ Route::middleware(['auth', 'role'])->group(function () {
     Route::post('/log-keluar', [AuthController::class, 'logout'])->name('logout');
 
     Route::get('/papan-pemuka', [DashboardController::class, 'index'])->name('dashboard');
+
+    // Profil pengguna (semua peranan)
+    Route::get('/profil', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::put('/profil', [ProfileController::class, 'update'])->name('profile.update');
 
     // Laporan (semua peranan; kebenaran halus dikawal oleh ReportPolicy)
     Route::get('/laporan', [ReportController::class, 'index'])->name('reports.index');
