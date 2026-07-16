@@ -53,7 +53,7 @@
                     @forelse ($terkini as $u)
                         <tr>
                             <td><strong>{{ $u->name }}</strong></td>
-                            <td class="mono">{{ $u->username }}</td>
+                            <td class="mono" style="text-transform: capitalize;">{{ $u->username }}</td>
                             <td>{{ $u->roleLabel() }}</td>
                             <td>
                                 @if ($u->is_active)
